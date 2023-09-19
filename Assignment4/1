@@ -1,1 +1,140 @@
+1)  SELECT * FROM Emp
+    WHERE DeptNo IN (10, 30);
+
+2)  SELECT * FROM Dept
+    WHERE COUNT(DeptNo) > 1;
+
+3)  SELECT * FROM Emp WHERE Ename LIKE 'S%';
+
+4)  SELECT * FROM Emp
+    WHERE Hire_Date < '1-Jan-1982';
+
+5)  SELECT Ename
+    FROM Emp
+    WHERE Ename LIKE '%a%'
+    UPDATE Emp
+    SET Ename = REPLACE(Ename, 'a', '#')
+    WHERE Ename LIKE '%a%';
+
+6)  SELECT Ename, Mgr
+    FROM Emp;
+
+7)  SELECT DeptNo, SUM(Sal) AS TotalSal
+    FROM Emp
+    GROUP BY DeptNo;
+
+8)  SELECT Emp.*, Dept.Dname, Dept.Loc
+    FROM Emp
+    LEFT JOIN Dept
+    ON Emp.DeptNo = Dept.DeptNo;
+
+9)  UPDATE Emp
+    SET Sal = Sal * 1.10;
+
+10) DELETE FROM Emp
+    WHERE Loc = 'Chennai';
+
+11) SELECT Ename, Sal + Commission AS GrossSal
+    FROM Emp;
+
+12) ALTER TABLE Emp
+    MODIFY Ename VARCHAR(250);
+
+13) SELECT CURRENT_TIMESTAMP;
+
+14) CREATE TABLE Student (
+    Sid INT NOT NULL AUTO_INCREMENT,
+    Sname VARCHAR(255) NOT NULL,
+    Age INT NOT NULL,
+    Gender CHAR(1) NOT NULL,
+    Dept VARCHAR(255) NOT NULL,
+    PRIMARY KEY (Sid)
+    );
+
+15) SELECT COUNT(*) AS EmpCount
+    FROM Emp
+    WHERE Sal > 10000;
+
+16) SELECT MIN(Sal) AS MinSalary, MAX(Sal) AS MaxSalary, AVG(Sal) AS AvgSalary
+    FROM Emp;
+
+17) SELECT DeptNo, COUNT(*) AS EmpCount
+    FROM Emp
+    GROUP BY DeptNo;
+
+18) SELECT Ename
+    FROM Emp
+    ORDER BY Ename DESC;
+
+19) SELECT * INTO EMP_BKP FROM EMP;
+
+20) SELECT LEFT(Ename, 3) || ' ' || Sal AS EmpSal
+    FROM Emp;
+
+21) SELECT * FROM Emp
+    WHERE Ename LIKE 'S%';
+
+22) SELECT * FROM Emp WHERE DeptNo = (SELECT DeptNo FROM Dept WHERE Loc = 'Bangalore');
+
+23) SELECT * FROM Emp WHERE Ename LIKE '[A-K]%';
+
+24) SELECT E.*
+    FROM Emp E
+    JOIN Emp M ON E.Mgr = M.EmpNo
+    WHERE M.Ename = 'Stefen';
+
+25) SELECT M.Ename AS ManagerName, COUNT(*) AS NumEmployees
+    FROM Emp E
+    JOIN Emp M ON E.Mgr = M.EmpNo
+    GROUP BY M.Ename
+    HAVING COUNT(*) = (SELECT MAX(NumEmployees) FROM (SELECT M.Ename, COUNT(*) AS NumEmployees FROM Emp E JOIN Emp M ON E.Mgr = M.EmpNo GROUP BY M.Ename) AS T);
+
+26) SELECT E.*, D.Dname AS DepartmentName, D.Loc AS DepartmentLocation, M.Ename AS ManagerName
+    FROM Emp E
+    JOIN Dept D ON E.DeptNo = D.DeptNo
+    JOIN Emp M ON E.Mgr = M.EmpNo
+    WHERE E.Sal = (SELECT DISTINCT TOP 1 Sal FROM Emp ORDER BY Sal DESC OFFSET 1 ROWS FETCH NEXT 1 ROWS ONLY);
+
+27) SELECT E.* FROM Emp E
+    WHERE E.EmpNo IN (SELECT DISTINCT Mgr FROM Emp WHERE Mgr IS NOT NULL);
+
+28) SELECT M.Ename AS ManagerName, COUNT(*) AS NumEmployees, SUM(DATEDIFF(YEAR, M.Hire_Date, GETDATE())) AS TotalExperience
+    FROM Emp E
+    JOIN Emp M ON E.Mgr = M.EmpNo
+    GROUP BY M.Ename;
+
+29) SELECT E.* FROM Emp E
+    JOIN Emp M ON E.EmpNo = M.Mgr
+    WHERE E.Commission < 1000 AND E.DeptNo = (SELECT DeptNo FROM Dept WHERE Loc = 'Delhi');
+
+30) SELECT E.* FROM Emp E
+    WHERE E.Hire_Date < (SELECT Hire_Date FROM Emp WHERE Ename = 'Martin');
+ 
+
+
+
+
+
+
+
+ 
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
