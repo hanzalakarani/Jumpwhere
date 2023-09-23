@@ -1,1 +1,175 @@
+#1
+def string_length(s):
+    return len(s)
+s = "JUMPWHERE"
+print(string_length(s))
+
+#2
+def character_frequency(s):
+    frequency = {}
+    for char in s:
+        if char in frequency:
+            frequency[char] += 1
+        else:
+            frequency[char] = 1
+    return frequency
+s = "google.com"
+print(character_frequency(s))
+
+#3
+def first_last_chars(s):
+    if len(s) < 2:
+        return ""
+    return s[:2] + s[-2:]
+s = "thisisniceone"
+print(first_last_chars(s))
+
+#4
+def replace_first_char(s):
+    return s[0] + s[1:].replace(s[0], '$')
+s = "restart"
+print(replace_first_char(s))
+
+#5
+def swap_first_two_chars_and_concatenate(string1, string2):
+  swapped_string1 = string2[:2] + string1[2:]
+  swapped_string2 = string1[:2] + string2[2:]
+  return swapped_string1 + " " + swapped_string2
+swapped_string = swap_first_two_chars_and_concatenate("abc", "xyz")
+print(swapped_string)
+
+#6
+def add_ing_or_ly(string):
+ if len(string) < 3:
+    return string
+   if string.endswith("ing"):
+    return string + "ly"
+   return string + "ing"
+string_with_added_suffix = add_ing_or_ly("abc")
+print(string_with_added_suffix)
+string_with_added_suffix = add_ing_or_ly("string")
+print(string_with_added_suffix)
+
+#7
+def replace_not_poor_with_good(string):
+  not_poor_index = string.find("not poor")
+  if not_poor_index != -1:
+    return string[:not_poor_index] + "good" + string[not_poor_index + 8:]
+  return string
+string_with_replaced_substring = replace_not_poor_with_good("The lyrics is not that poor!")
+print(string_with_replaced_substring)
+string_with_replaced_substring = replace_not_poor_with_good("The lyrics is poor!")
+print(string_with_replaced_substring)
+
+#8
+python
+def longest_word_length(words):
+    return max(len(word) for word in words)
+words = ["I", "love", "my", "country"]
+print(longest_word_length(words))
+
+#9
+python
+def remove_nth_index_char(s, n):
+    if n < 0 or n >= len(s):
+        return s
+    return s[:n] + s[n+1:]
+s = "Mangalore"
+n = 4
+print(remove_nth_index_char(s, n))
+
+#10
+def unique_sorted_words(words):
+    unique_words = set(words.split(','))
+    return sorted(unique_words)
+words = "red, white, black, red, green, black"
+print(unique_sorted_words(words))
+
+#11
+def reverse_string(s):
+    if len(s) % 4 == 0:
+        return s[::-1]
+    else:
+        return s
+s = "world"
+print(reverse_string(s))
+
+#12
+def convert_to_uppercase(s):
+    uppercase_count = sum(1 for c in s[:4] if c.isupper())
+    if uppercase_count >= 2:
+        return s.upper()
+    else:
+        return s
+s = "Hello World"
+print(convert_to_uppercase(s))
+
+#13
+def starts_with_chars(s, chars):
+    return s.startswith(chars)
+s = "hello world"
+chars = "hello"
+print(starts_with_chars(s, chars))
+
+#14
+pi = 3.1415926
+print(round(pi, 2))
+
+#15
+def count_repeated_chars(s):
+    char_count = {}
+    for c in s:
+        if c in char_count:
+            char_count[c] += 1
+        else:
+            char_count[c] = 1
+    return char_count
+s = "thequickbrownfoxjumps over the lazy dog"
+char_count = count_repeated_chars(s)
+for char, count in char_count.items():
+    print(f"{char}: {count}")
+
+#16
+def print_index(s, c):
+    for i, char in enumerate(s):
+        if char == c:
+            print(i)
+s = "hello world"
+c = "o"
+print_index(s, c)
+
+#17
+s = "hello world"
+list_s = list(s)
+print(list_s)
+
+#18
+python
+def swap_comma_dot(s):
+    return s.replace(",", "__temp__").replace(".", ",").replace("__temp__", ".")
+s = "32.054,23"
+print(swap_comma_dot(s))
+
+#19
+def smallest_largest_word(s):
+    words = s.split()
+    smallest = min(words, key=len)
+    largest = max(words, key=len)
+    return smallest, largest
+s = "the quick brown fox jumps over the lazy dog"
+smallest, largest = smallest_largest_word(s)
+print(f"Smallest word: {smallest}")
+print(f"Largest word: {largest}")
+
+#20
+def remove_consecutive_duplicates(s):
+    result = ""
+    prev_char = ""
+    for char in s:
+        if char != prev_char:
+            result += char
+            prev_char = char
+    return result
+s = "hello world"
+print(remove_consecutive_duplicates(s))
 
