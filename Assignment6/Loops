@@ -1,1 +1,241 @@
+#1
+for num in range(1500, 2701):
+    if num % 7 == 0 and num % 5 == 0:
+        print(num)
+
+#2
+for num in range(7):
+    if num == 3 or num == 6:
+        continue
+    print(num)
+
+#3
+for num in range(1, 51):
+    if num % 3 == 0 and num % 5 == 0:
+        print("FizzBuzz")
+    elif num % 3 == 0:
+        print("Fizz")
+    elif num % 5 == 0:
+        print("Buzz")
+    else:
+        print(num)
+
+#4
+def check_triangle_type(x, y, z):
+    if x == y == z:
+        return "Equilateral triangle"
+    elif x == y or y == z or z == x:
+        return "Isosceles triangle"
+    else:
+        return "Scalene triangle"
+x = int(input("x: "))
+y = int(input("y: "))
+z = int(input("z: "))
+print(check_triangle_type(x, y, z))
+
+#5
+def main():
+    n = 0
+    sum = 0
+    while True:
+        num = int(input("Enter an integer number (0 to finish): "))
+        if num == 0:
+            break
+        n += 1
+        sum += num
+    if n == 0:
+        print("No numbers entered.")
+    else:
+        average = sum / n
+        print(f"Sum of the numbers: {sum}")
+        print(f"Average of the numbers: {average}")
+if __name__ == "__main__":
+    main()
+
+#6
+n = int(input("Enter the number of lines: "))
+for i in range(1, n+1):
+  for j in range(i):
+    print(i,end="")
+  print(i * " " + i * str(i))
+
+#7
+numbers = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
+count = 0
+for num in numbers:
+    if num > 30:
+        count += 1
+print("Number of elements greater than 30: ", count)
+
+#8
+length = int(input("Enter the length of the rectangle: "))
+breadth = int(input("Enter the breadth of the rectangle: "))
+if length == breadth:
+    print("The rectangle is a square.")
+else:
+    print("The rectangle is not a square.")
+
+#9
+quantity = int(input("Enter the quantity: "))
+unit_cost = 100
+if quantity * unit_cost > 1000:
+    total_cost = quantity * unit_cost * 0.9
+else:
+    total_cost = quantity * unit_cost
+print("Total cost: ", total_cost)
+
+#10
+salary = int(input("Enter the salary: "))
+years_of_service = int(input("Enter the year of service: "))
+if years_of_service > 5:
+    net_bonus = salary * 0.05
+else:
+    net_bonus = 0
+print("Net bonus amount: ", net_bonus)
+
+#11
+marks = float(input("Enter your marks: "))
+if marks < 25:
+    grade = "F"
+elif 25 <= marks < 45:
+    grade = "E"
+elif 45 <= marks < 50:
+    grade = "D"
+elif 50 <= marks < 60:
+    grade = "C"
+elif 60 <= marks <= 80:
+    grade = "B"
+else:
+    grade = "A"
+print(f"Your grade is: {grade}")
+
+#12
+classes_held = int(input("Enter the number of classes held: "))
+classes_attended = int(input("Enter the number of classes attended: "))
+attendance_percentage = (classes_attended / classes_held) * 100
+if attendance_percentage >= 75:
+    print(f"Percentage of classes attended: {attendance_percentage}%")
+    print("The student is allowed to sit in the exam.")
+else:
+    print(f"Percentage of classes attended: {attendance_percentage}%")
+    print("The student is not allowed to sit in the exam.")
+
+#13
+total = 0
+count = 0
+for i in range(10):
+    num = int(input("Enter an integer: "))
+    total += num
+    count += 1
+average = total / count
+print(f"The average of the 10 integers is: {average}")
+
+#14
+for num in [24, 50, 29]:
+    print(f"Multiplication table of {num}:")
+    for i in range(1, 11):
+        product = num * i
+        print(f"{num} x {i} = {product}")
+    print()  
+
+#15
+total = 0
+count = 0
+product = 1
+while True:
+    user_input = input("Enter an integer (press 'q' to quit): ")
+        if user_input.lower() == 'q':
+        break
+        num = int(user_input)
+    total += num
+    product *= num
+    count += 1
+if count > 0:
+    average = total / count
+    print(f"Average of the entered numbers: {average}")
+    print(f"Product of the entered numbers: {product}")
+else:
+    print("No numbers were entered.")
+
+#16
+user_list = input("Enter elements separated by spaces: ").split()
+element_to_delete = input("Enter an element to delete from the list: ")
+user_list = [int(x) for x in user_list]
+if element_to_delete in user_list:
+    user_list.remove(int(element_to_delete))
+    print(f"{element_to_delete} was found and deleted from the list.")
+else:
+    print(f"{element_to_delete} was not found in the list.")
+print("List after deletion:")
+for element in user_list:
+    print(element)
+
+#17
+def is_prime(num):
+    if num <= 1:
+        return False
+    for i in range(2, int(num**0.5) + 1):
+        if num % i == 0:
+            return False
+    return True
+all_numbers = list(range(1, 101))
+even_numbers = [num for num in all_numbers if num % 2 == 0]
+odd_numbers = [num for num in all_numbers if num % 2 != 0]
+prime_numbers = [num for num in all_numbers if is_prime(num)]
+print("Even numbers:", even_numbers)
+print("Odd numbers:", odd_numbers)
+print("Prime numbers:", prime_numbers)
+
+#18
+divisible_by_4 = [num for num in even_numbers if num % 4 == 0]
+divisible_by_6 = [num for num in even_numbers if num % 6 == 0]
+divisible_by_8 = [num for num in even_numbers if num % 8 == 0]
+divisible_by_10 = [num for num in even_numbers if num % 10 == 0]
+divisible_by_3 = [num for num in all_numbers if num % 3 == 0]
+divisible_by_5 = [num for num in all_numbers if num % 5 == 0]
+divisible_by_7 = [num for num in all_numbers if num % 7 == 0]
+divisible_by_9 = [num for num in all_numbers if num % 9 == 0]
+print("Numbers divisible by 4:", divisible_by_4)
+print("Numbers divisible by 6:", divisible_by_6)
+print("Numbers divisible by 8:", divisible_by_8)
+print("Numbers divisible by 10:", divisible_by_10)
+print("Numbers divisible by 3:", divisible_by_3)
+print("Numbers divisible by 5:", divisible_by_5)
+print("Numbers divisible by 7:", divisible_by_7)
+print("Numbers divisible by 9:", divisible_by_9)
+
+#19
+mixed_list = [1, "apple", 3.14, 42, "banana", 2.718, "cherry", 7]
+int_list = [item for item in mixed_list if isinstance(item, int)]
+str_list = [item for item in mixed_list if isinstance(item, str)]
+float_list = [item for item in mixed_list if isinstance(item, float)]
+print("Integers:", int_list)
+print("Strings:", str_list)
+print("Floats:", float_list)
+
+#20
+original_list = [1, 2, 3, 4, 5]
+squared_list = [num ** 2 for num in original_list]
+print("Squared list:", squared_list)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
