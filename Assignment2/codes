@@ -1,1 +1,60 @@
+# Reverse a string
+def reverse_string(string):
+    return string[::-1]
 
+# Check if a number is prime
+def is_prime(number):
+    if number <= 1:
+        return False
+    for i in range(2, int(number ** 0.5) + 1):
+        if number % i == 0:
+            return False
+    return True
+
+# Find the factorial of a number
+def factorial(number):
+    if number == 0:
+        return 1
+    else:
+        return number * factorial(number - 1)
+
+# Find the Fibonacci sequence
+def fibonacci(n):
+    if n < 2:
+        return n
+    else:
+        return fibonacci(n - 1) + fibonacci(n - 2)
+
+# Find the greatest common divisor (GCD) of two numbers
+def gcd(a, b):
+    if b == 0:
+        return a
+    return gcd(b, a % b)
+
+# Find the least common multiple (LCM) of two numbers
+def lcm(a, b):
+    return (a * b) // gcd(a, b)
+
+# Check if a string is a palindrome
+def is_palindrome(string):
+    return string == string[::-1]
+
+# Find all anagrams of a given string
+def find_anagrams(string):
+    anagrams = set()
+    for i in range(len(string)):
+        for j in range(i + 1, len(string) + 1):
+            anagrams.add("".join(sorted(string[i:j])))
+    return anagrams
+
+# Find all subsequences of a given string
+def find_subsequences(string):
+    subsequences = set()
+    for i in range(len(string)):
+        for j in range(i + 1, len(string) + 1):
+            subsequences.add(string[i:j])
+    return subsequences
+
+# Sort a list of numbers in ascending order
+def sort_list(list):
+    return sorted(list)
