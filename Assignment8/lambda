@@ -1,0 +1,78 @@
+#1
+add_15 = lambda x: x + 15
+multiply = lambda x, y: x * y
+print(add_15(10))  # Output: 25
+print(multiply(4, 12))  # Output: 48
+
+#2
+original_list = [('English', 88), ('Science', 90), ('Maths', 97), ('Social sciences', 82)]
+sorted_list = sorted(original_list, key=lambda x: x[1])
+print(sorted_list)
+
+#3
+original_list = [{'make': 'Nokia', 'model': 216, 'color': 'Black'}, {'make': 'Mi Max', 'model': '2', 'color': 'Gold'}, {'make': 'Samsung', 'model': 7, 'color': 'Blue'}]
+sorted_list = sorted(original_list, key=lambda x: x['model'])
+print(sorted_list)
+
+#4
+def starts_with(string, character):
+  return string[0] == character
+string = input("Enter a string: ")
+character = input("Enter a character: ")
+if starts_with(string, character):
+  print("The string starts with the character.")
+else:
+  print("The string does not start with the character.")
+
+#5
+import re
+is_number = lambda s: re.match(r'^[0-9]+$', s)
+string = input("Enter a string: ")
+if is_number(string):
+  print("The string is a number.")
+else:
+  print("The string is not a number.")
+
+#6
+original_list = [19, 65, 57, 39, 152, 639, 121, 44, 90, 190]
+divisible_by_nineteen_or_thirteen = list(filter(lambda x: (x % 19 == 0) or (x % 13 == 0), original_list))
+print(divisible_by_nineteen_or_thirteen)
+
+#7
+original_matrix = [[1, 2, 3], [2, 4, 5], [1, 1, 1]]
+sorted_matrix = sorted(original_matrix, key=lambda x: sum(x))
+print(sorted_matrix)
+original_matrix = [[1, 2, 3], [-2, 4, -5], [1, -1, 1]]
+sorted_matrix = sorted(original_matrix, key=lambda x: sum(x))
+print(sorted_matrix)
+
+#8
+check_string = lambda s: all(cond(s) for cond in [lambda s: any(c.isupper() for c in s), 
+                                                   lambda s: any(c.islower() for c in s), 
+                                                   lambda s: any(c.isdigit() for c in s), 
+                                                   lambda s: len(s) >= 10])
+
+input_string = input("Enter a string: ")
+
+if check_string(input_string):
+    print("Valid string")
+else:
+    print("Invalid string")
+
+#9
+original_list = ['red', 'black', 'white', 'green', 'orange']
+substring1 = 'ack'
+substring2 = 'abc'
+elements1 = list(filter(lambda x: substring1 in x, original_list))
+elements2 = list(filter(lambda x: substring2 in x, original_list))
+print("Elements of the said list that contain specific substring:", elements1)
+print("Elements of the said list that contain specific substring:", elements2)
+
+#10
+mixed_list = [19, 'red', 12, 'green', 'blue', 10, 'white', 'green', 1]
+sorted_list = sorted(mixed_list, key=lambda x: (isinstance(x, int), x))
+print("Original list:", mixed_list)
+print("Sorted list:", sorted_list)
+
+
+
