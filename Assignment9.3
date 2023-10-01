@@ -1,0 +1,17 @@
+def is_balanced(delimiters):
+    stack = []
+    opening = "([{"
+    closing = ")]}"
+    mapping = {')': '(', ']': '[', '}': '{'}
+    for char in delimiters:
+        if char in opening:
+            stack.append(char)
+        elif char in closing:
+            if not stack or stack[-1] != mapping[char]:
+                return False
+            stack.pop()
+    return not stack
+input_string = "([{}])"
+print(is_balanced(input_string)) 
+input_string = "([{}))"
+print(is_balanced(input_string))  
