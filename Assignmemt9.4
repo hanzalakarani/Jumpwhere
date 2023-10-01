@@ -1,0 +1,11 @@
+def convert_to_non_negative(coordinates):    
+    min_x = min(coord[0] for coord in coordinates)
+    min_y = min(coord[1] for coord in coordinates)    
+    x_adjust = max(0, -min_x)
+    y_adjust = max(0, -min_y)
+    result = [(coord[0] + x_adjust, coord[1] + y_adjust) for coord in coordinates]
+    return result
+
+input_coordinates = [(1, -2), (-2, 4), (-1, -1), (-8, -3), (0, 4), (10, -3)]
+output_coordinates = convert_to_non_negative(input_coordinates)
+print(output_coordinates)
